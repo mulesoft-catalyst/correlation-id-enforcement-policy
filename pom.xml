@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>\
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">\
-	<modelVersion>4.0.0</modelVersion>\
-	<groupId>YOUR GROUP ID</groupId>\
-	<artifactId>correlation-id-enforcement-policy</artifactId>\
-	<version>1.0.0</version>\
-	<name>correlation-id-enforcement-policy</name>\
-	<description>Enforces the Requirement to maintain Correlation IDs</description>\
-	<packaging>mule-policy</packaging>\
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>YOUR GROUP ID</groupId>
+	<artifactId>correlation-id-enforcement-policy</artifactId>
+	<version>1.0.0</version>
+	<name>correlation-id-enforcement-policy</name>
+	<description>Enforces the Requirement to maintain Correlation IDs</description>
+	<packaging>mule-policy</packaging>
 		<properties>
 			<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 			<exchange.url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${groupId}/maven</exchange.url>
