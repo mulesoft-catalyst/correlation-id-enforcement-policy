@@ -1,0 +1,127 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red18\green31\blue60;}
+{\*\expandedcolortbl;;\cssrgb\c9020\c16863\c30196;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <?xml version="1.0" encoding="UTF-8" standalone="no"?>\
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">\
+	<modelVersion>4.0.0</modelVersion>\
+	<groupId>YOUR GROUP ID</groupId>\
+	<artifactId>correlation-id-enforcement-policy</artifactId>\
+	<version>1.0.0</version>\
+	<name>correlation-id-enforcement-policy</name>\
+	<description>Enforces the Requirement to maintain Correlation IDs</description>\
+	<packaging>mule-policy</packaging>\
+\
+\
+	<properties>\
+		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>\
+		<exchange.url>https://maven.anypoint.mulesoft.com/api/v2/organizations/$\{groupId\}/maven</exchange.url>\
+		<httpPolicyTransformVersion>3.1.0</httpPolicyTransformVersion>\
+	</properties>\
+\
+\
+	<build>\
+		<plugins>\
+			<plugin>\
+				<groupId>org.mule.tools.maven</groupId>\
+				<artifactId>mule-maven-plugin</artifactId>\
+				<version>$\{mule.maven.plugin.version\}</version>\
+				<extensions>true</extensions>\
+			</plugin>\
+			<plugin>\
+				<groupId>org.apache.maven.plugins</groupId>\
+				<artifactId>maven-deploy-plugin</artifactId>\
+				<executions>\
+					<execution>\
+						<id>upload-template</id>\
+						<phase>deploy</phase>\
+						<goals>\
+							<goal>deploy-file</goal>\
+						</goals>\
+						<configuration>\
+							<repositoryId>Repository</repositoryId>\
+							<url>$\{exchange.url\}</url>\
+							<file>$\{project.basedir\}/$\{project.artifactId\}.yaml</file>\
+							<generatePom>false</generatePom>\
+							<groupId>$\{project.groupId\}</groupId>\
+							<artifactId>$\{project.artifactId\}</artifactId>\
+							<version>$\{project.version\}</version>\
+							<packaging>yaml</packaging>\
+							<classifier>policy-definition</classifier>\
+						</configuration>\
+					</execution>\
+				</executions>\
+			</plugin>\
+		</plugins>\
+	</build>\
+\
+\
+	<dependencies>\
+		<dependency>\
+			<groupId>com.mulesoft.anypoint</groupId>\
+			<artifactId>mule-http-policy-transform-extension</artifactId>\
+			<version>$\{httpPolicyTransformVersion\}</version>\
+			<classifier>mule-plugin</classifier>\
+			<exclusions>\
+				<exclusion>\
+					<groupId>org.mule.connectors</groupId>\
+					<artifactId>mule-http-connector</artifactId>\
+				</exclusion>\
+			</exclusions>\
+		</dependency>\
+	</dependencies>\
+\
+\
+	<distributionManagement>\
+		<repository>\
+			<id>Repository</id>\
+			<name>Corporate Repository</name>\
+			<url>$\{exchange.url\}</url>\
+			<layout>default</layout>\
+		</repository>\
+	</distributionManagement>\
+\
+\
+	<repositories>\
+		<repository>\
+			<id>anypoint-exchange</id>\
+			<name>Anypoint Exchange</name>\
+			<url>https://maven.anypoint.mulesoft.com/api/v1/maven</url>\
+			<layout>default</layout>\
+		</repository>\
+		<repository>\
+			<id>mulesoft-releases</id>\
+			<name>MuleSoft Releases Repository</name>\
+			<url>https://repository.mulesoft.org/releases/</url>\
+			<layout>default</layout>\
+		</repository>\
+		<repository>\
+			<id>mule-ee-releases</id>\
+			<name>MuleSoft EE Releases Repository</name>\
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases-ee/</url>\
+			<layout>default</layout>\
+		</repository>\
+	</repositories>\
+	<pluginRepositories>\
+		<pluginRepository>\
+			<id>mule-plugin</id>\
+			<name>Mule Repository</name>\
+			<url>https://repository.mulesoft.org/nexus/content/repositories/public/</url>\
+		</pluginRepository>\
+		<pluginRepository>\
+			<id>mulesoft-releases</id>\
+			<name>mulesoft release repository</name>\
+			<layout>default</layout>\
+			<url>https://repository.mulesoft.org/releases/</url>\
+			<snapshots>\
+				<enabled>false</enabled>\
+			</snapshots>\
+		</pluginRepository>\
+	</pluginRepositories>\
+</project>}

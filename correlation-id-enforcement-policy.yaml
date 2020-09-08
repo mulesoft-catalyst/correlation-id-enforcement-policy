@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red18\green31\blue60;}
+{\*\expandedcolortbl;;\cssrgb\c9020\c16863\c30196;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 id: correlation-id-enforcement\
+name: Correlation ID Enforcement\
+description: Checks if a Correlation ID is present and generates one if not. If this policy generates an ID for X-CORRELATION-ID, Mule will not replace the internal correlation id with this value.\
+category: Logging\
+type: Logging\
+standalone: true\
+resourceLevelSupported: true\
+requiresConnectivity: false\
+providedCharacteristics: []\
+requiredCharacteristics: []\
+configuration:   \
+  - propertyName: correlation-id-header-name\
+    name: Correlation ID Header Name\
+    description: The name of the HTTP Header used as a correlation id.\
+    type: string\
+    defaultValue: X-CORRELATION-ID\
+    sensitive: false\
+    optional: false\
+  - propertyName: generate-id-flag\
+    name: Generate ID\
+    description: This flag determines whether an ID is generated if the specified header is not found\
+    type: boolean\
+    defaultValue: true\
+    sensitive: false\
+    optional: false\
+  - propertyName: return-id-flag\
+    name: Return ID\
+    description: This flag determines whether an ID is returned on the http response.\
+    type: boolean\
+    defaultValue: true\
+    sensitive: false\
+    optional: false}
